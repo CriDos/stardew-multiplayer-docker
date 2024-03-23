@@ -27,7 +27,7 @@ RUN mkdir -p $TEMP_DIR &&\
     rm -rf $TEMP_DIR 
 
 RUN mkdir -p /data/gl4es &&\
-    cp -r /gl4es/* /data/gl4es 
+    cp -r ./gl4es/* /data/gl4es 
 
 # Game + ModLoader 1.6.2 4.0.1
 RUN mkdir -p /data/Stardew && \
