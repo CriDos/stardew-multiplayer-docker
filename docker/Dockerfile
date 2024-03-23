@@ -56,3 +56,4 @@ COPY run /etc/services.d/utils/run
 RUN chmod +x /etc/services.d/utils/run 
 
 COPY docker-entrypoint.sh /startapp.sh
+RUN chmod +x /startapp.sh
