@@ -35,6 +35,6 @@ done
 export XAUTHORITY=~/.Xauthority
 sed -i 's/env TERM=xterm $LAUNCHER "$@"/env SHELL=\/bin\/bash TERM=xterm xterm  -e "\/bin\/bash -c $LAUNCHER \"$@\""/' /data/Stardew/game/Stardew\ Valley
 
-bash -c "BOX64_DYNAREC_HOTPAGE=0 LD_LIBRARY_PATH=/data/gl4es:/data/x86_64-linux-gnu/:$LD_LIBRARY_PATH box64 /data/Stardew/start.sh"
+bash -c "BOX64_DYNAREC_HOTPAGE=0 LD_LIBRARY_PATH=/data/gl4es/:/data/x86_64-linux-gnu/:$LD_LIBRARY_PATH box64 /data/Stardew/start.sh"
 
 sleep 233333333333333
