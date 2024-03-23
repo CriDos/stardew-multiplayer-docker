@@ -5,7 +5,8 @@ FROM jlesage/baseimage-gui:debian-11-v4
 ENV APP_NAME="StardewValley"
 
 RUN apt-get update
-RUN apt-get install -y wget dpkg unzip tar strace mono-complete xterm gettext-base jq netcat procps libfaudio0 libusb-1.0-0
+RUN apt-get install -y wget dpkg unzip tar strace mono-complete xterm gettext-base jq netcat procps libfaudio0 \
+    libusb-1.0-0 libc-bin libc6 locales
 
 RUN wget -O box64.deb https://github.com/ryanfortner/box64-debs/raw/master/debian/box64-lx2160a_0.2.7%2B20240321.1dca97b-1_arm64.deb &&\
     dpkg -i box64.deb &&\
