@@ -24,7 +24,9 @@ RUN mkdir -p $TEMP_DIR &&\
     ar -x $DEB_FILE &&\
     tar -xf data.tar.xz &&\
     cp -r $TEMP_DIR/usr/lib/* /data &&\
-    rm -rf $TEMP_DIR
+    rm -rf $TEMP_DIR 
+
+COPY gl4es/ /data/gl4es
 
 # Game + ModLoader 1.6.2 4.0.1
 RUN mkdir -p /data/Stardew && \
@@ -40,8 +42,7 @@ RUN wget -qO dotnet.tar.gz https://download.visualstudio.microsoft.com/download/
 
 RUN wget https://mirror.cloudcraft.info/SMAPI_latest.zip -qO /data/nexus.zip && \
     unzip /data/nexus.zip -d /data/nexus/ && \
-    SMAPI_INSTALLER=$(find /data/nexus -name 'SMAPI*.installer' -type f | head -n 1) && \
-    /bin/bash -c "SMAPI_NO_TERMINAL=true SMAPI_USE_CURRENT_SHELL=true echo -e "2\n\n" | $SMAPI_INSTALLER --install --game-path "/data/Stardew/game"" || :
+    /bin/bash -c "SMAPI_NO_TERMINAL=true SMAPI_USE_CURRENT_SHELL=true echo -e \"2\n\n\" | /data/nexus/SMAPI\ 4.0.1\ installer/internal/linux/SMAPI.Installer --install --game-path \"/data/Stardew/game\"" || :
 
 # Add Mods & Scripts
 COPY ["mods/", "/data/Stardew/game/Mods/"]
